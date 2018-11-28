@@ -51,7 +51,7 @@ end shiftReg;
 architecture rtl of shiftReg is
 	signal dst, d0, d1, d2, d3, d4, d5, d6, d7, dsp1, dsp2 : std_logic;
 	begin
-
+	
 	
 	
 	

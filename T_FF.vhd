@@ -1,20 +1,21 @@
---Define D_FF
+--Define T_FF
+--Needed for the divide by 11 asynchronous counter
 
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity D_FF is
+entity T_FF is
 	
 	port (
 		clk: in std_logic;
 		rst: in std_logic;
-		d: in std_logic;
+		t: in std_logic;
 		q: out std_logic
 	);
 
-end D_FF;
+end T_FF;
 
-architecture behv of D_FF is
+architecture behv of T_FF is
 
 
 begin
@@ -24,7 +25,7 @@ begin
 				if (rst = '1') then
 					q <= '0';
 				else
-					q <= d;
+				q <= t xor q;
 				end if;
 			end if;
 	end process;
