@@ -47,6 +47,6 @@ architecture rtl of shiftReg is
 	d6 <= Q7;
 	d7 <= QSP1;
 	dsp1 <= QSP2;
-	dsp2 <= din;
+	dsp2 <= dingit ;
 end rtl;
 	
