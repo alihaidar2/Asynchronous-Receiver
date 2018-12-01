@@ -53,10 +53,6 @@ architecture rtl of shiftReg is
 	begin
 	
 	
-	
-	
-	
-	
 	dst <= Q0;
 	d0 = Q1;
 	d1 = Q2;

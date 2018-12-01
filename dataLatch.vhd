@@ -15,7 +15,7 @@ architecture behv of dataLatch is
 begin
 	process(clk, d)
 		begin 
-			if(if rising_edge(clk)) then
+			if (rising_edge(clk)) then
 				oq <= d;
 			end if;
 	end process;
