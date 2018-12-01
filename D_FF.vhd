@@ -7,7 +7,6 @@ entity D_FF is
 	
 	port (
 		clk: in std_logic;
-		rst: in std_logic;
 		d: in std_logic;
 		q: out std_logic
 	);
@@ -15,17 +14,11 @@ entity D_FF is
 end D_FF;
 
 architecture behv of D_FF is
-
-
 begin
-	process(clk)    --or (clk, rst)?
+	process(clk) 
 		begin
-			if rising_edge(clk) then
-				if (rst = '1') then
-					q <= '0';
-				else
-					q <= d;
-				end if;
+			if (clk'event and clk='1') then
+				q <= d;
 			end if;
 	end process;
 end behv;
