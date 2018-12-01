@@ -54,7 +54,7 @@ architecture rtl of shiftReg is
 	
 	
 	dst <= Q0;
-	d0 = Q1;
+	d0 <= Q1;
 	d1 = Q2;
 	d2 = Q3;
 	d4 = Q5;
