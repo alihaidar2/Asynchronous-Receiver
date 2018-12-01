@@ -16,12 +16,14 @@ end D_FF;
 architecture behv of D_FF is
 begin
 	process(clk) 
-	begin
-		if (clk'event and clk='1') then
-			q <= d;
-		end if;
+		begin
+			if (clk'event and clk='1') then
+				q <= d;
+			end if;
 	end process;
 end behv;
+	
+
 
 
 	
