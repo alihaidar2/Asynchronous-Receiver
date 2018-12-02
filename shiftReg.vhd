@@ -24,18 +24,20 @@ end shiftReg;
 
 
 architecture rtl of shiftReg is
-	signal dst, d0, d1, d2, d3, d4, d5, d6, d7, dsp1, dsp2 : std_logic;
+	signal qst, q0, q1, q2, q3, q4, q5, q6, q7, qsp1, qsp2 : std_logic;
 begin
-	dst <= Q0;
-	d0 <= Q1;
-	d1 <= Q2;
-	d2 <= Q3;
-	d4 <= Q5;
-	d5 <= Q6;
-	d6 <= Q7;
-	d7 <= QSP1;
-	dsp1 <= QSP2;
-	dsp2 <= din;
+	process (clk, rst)
+	begin
+	qst <= Q0;
+	q0 <= Q1;
+	q1 <= Q2;
+	q2 <= Q3;
+	q4 <= Q5;
+	q5 <= Q6;
+	q6 <= Q7;
+	q7 <= QSP1;
+	qsp1 <= QSP2;
+	qsp2 <= din;
 end rtl;
 
 	
