@@ -27,20 +27,8 @@ use ieee.std_logic_1164.all;
 entity shiftReg is 
 
 	port (
-		rst: in std_logic;
-		clk: in std_logic;
-		din: in std_logic;
-		QST: out std_logic;
-		Q0: out std_logic;
-		Q1: out std_logic;
-		Q2: out std_logic;
-		Q3: out std_logic;
-		Q4: out std_logic;
-		Q5: out std_logic;
-		Q6: out std_logic;
-		Q7: out std_logic;
-		QSP1: out std_logic;
-		QSP2: out std_logic
+		rst, clk, rx: in std_logic;
+		QST, Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7, QSP1, QSP2: out std_logic
 		);	
 		
 end shiftReg;
@@ -48,7 +36,7 @@ end shiftReg;
 
 architecture rtl of shiftReg is
 	signal dst, d0, d1, d2, d3, d4, d5, d6, d7, dsp1, dsp2 : std_logic;
-	begin
+begin
 	dst <= Q0;
 	d0 <= Q1;
 	d1 <= Q2;

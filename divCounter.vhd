@@ -8,16 +8,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity divCounter is
-	
 	port (
-	clr: in std_logic;
-	clk: in std_logic;
-	rst: in std_logic;
-	rxf: out std_logic
-	Q0: out std_logic;
-	Q1: out std_logic;
-	Q2: out std_logic;
-	Q3: out std_logic;
+	clr, clk, rst: in std_logic;
+	rxf, q0, q1, q2, q3: out std_logic
 	);
 
 end divCounter;
@@ -29,6 +22,6 @@ architecture rtl of shiftReg is
 		t1= Q0 and stop; --for binary counter design
 		t2= Q0 and Q1 and stop; --Will generate AND gates
 		t3= Q0 and Q1 and Q2 and stop;
-		stop = not(Q0 and Q1 and (not(Q2)) and Q3);
+		stop = not(Q0 and Q1 and not(Q2) and Q3);
 		rxf=not(stop);
 end rtl;
