@@ -39,17 +39,27 @@ architecture top_stru of top_async is
 	
 	component D_FF
 		port ( clk, rst: in std_logic;
-		d: in std_logic;
-		q: out std_logic );
+			d: in std_logic;
+			q: out std_logic );
+	end component;
+	
+	component T_FF
+		port (
+			clk, rst, t: in std_logic;
+			q: out std_logic
+			);
 	end component;
 	
 begin
 	C0: fsm port map (SW(10), "rxf, rxo, ed, en, ack", CLOCK_50, KEY(0), CLR1, X1, "err, dry", PDCLK);
 	-- QST, QSP1, QSP2 are used for error so idk if i have to port them to anything, D FF?
-	C1: shiftReg port map(CLR1, X1, din, "QST=idk if it goes anywhere", D0, D1, D2, D3, D4, D5, D6, D7, "QSP1, QSP2");
+	-- DIN is the switches i think SW(10 downto 0)
+	C1: shiftReg port map(CLR1, X1, "din", "QST=idk if it goes anywhere", D0, D1, D2, D3, D4, D5, D6, D7, "QSP1, QSP2");
 	C2: divCounter port map("clr = CLR1"); -- dont have actual implementation so just saying what it should be
 	C3: dataLatch port map("oq", D0, D1, D2, D3, D4, D5, D6, D7, PDCLK); --oq to outside
-	C4: D_FF port map(X1, CLR1, din, qsp2);
+	
+	-- need to connect these FFs to Shift register, maybe D0->D7?
+	C4: D_FF port map(X1, CLR1, "din", qsp2);
 	C5: D_FF port map(X1, CLR1, qsp2, qsp1);
 	C6: D_FF port map(X1, CLR1, qsp1, q7);
 	C7: D_FF port map(X1, CLR1, q7, q6);
@@ -60,8 +70,8 @@ begin
 	C12: D_FF port map(X1, CLR1, q2, q1);
 	C13: D_FF port map(X1, CLR1, q1, q0);
 	C14: D_FF port map(X1, CLR1, q0, qst);
+	C15: T_FF port map(X1, CLR1, );
+	C16: T_FF port map(X1, CLR1, );
+	C17: T_FF port map(X1, CLR1, );
+	C18: T_FF port map(X1, CLR1, );
 end top_stru;
-	
-	
-	
-	

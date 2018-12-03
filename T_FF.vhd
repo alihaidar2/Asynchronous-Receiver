@@ -10,15 +10,16 @@ entity T_FF is
 		clk, rst, t: in std_logic;
 		q: out std_logic
 	);
-
 end T_FF;
 
 
 architecture behv of T_FF is
 begin
-	process(clk)
+	process(clk, rst)
 	begin
-		if rising_edge(clk) then
+		if (rst = '0') then
+			q <= '0'
+		elsif (clk'event and clk='1') then
 			q <= t xor q;
 		end if;
 	end process;
