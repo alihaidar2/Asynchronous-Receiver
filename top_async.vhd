@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity top_async is
 	port (
-		rx: in std_logic_vector(7 downto 0);
+		rx: in std_logic_vector(10 downto 0);
 		rst: in std_logic;
 		clk: in std_logic
 		);
@@ -59,7 +59,7 @@ begin
 	C3: dataLatch port map("oq", D0, D1, D2, D3, D4, D5, D6, D7, PDCLK); --oq to outside
 	
 	-- need to connect these FFs to Shift register, maybe D0->D7?
-	C4: D_FF port map(X1, CLR1, "din", qsp2);
+	C4: D_FF port map(X1, CLR1, rx, qsp2);
 	C5: D_FF port map(X1, CLR1, qsp2, qsp1);
 	C6: D_FF port map(X1, CLR1, qsp1, q7);
 	C7: D_FF port map(X1, CLR1, q7, q6);
@@ -70,6 +70,7 @@ begin
 	C12: D_FF port map(X1, CLR1, q2, q1);
 	C13: D_FF port map(X1, CLR1, q1, q0);
 	C14: D_FF port map(X1, CLR1, q0, qst);
+	
 	C15: T_FF port map(X1, CLR1, );
 	C16: T_FF port map(X1, CLR1, );
 	C17: T_FF port map(X1, CLR1, );

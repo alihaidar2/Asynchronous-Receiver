@@ -11,7 +11,7 @@ entity divCounter is
 
 end divCounter;
 
-architecture rtl of shiftReg is
+architecture rtl of divCounter is
 	signal t0, t1, t2, t3, stop : std_logic; 
 	begin
 		t0 = 1 and stop;
