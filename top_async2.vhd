@@ -43,6 +43,11 @@ architecture top_stru of top_async is
 		q: out std_logic );
 	end component;
 	
+	component T_FF
+		port ( clk, rst : in std_logic;
+		t : in std_logic;
+		q: out std_logic);
+	
 begin
 	C0: fsm port map (SW(10), "rxf, rxo, ed, en, ack", CLOCK_50, KEY(0), CLR1, X1, "err, dry", PDCLK);
 	-- QST, QSP1, QSP2 are used for error so idk if i have to port them to anything, D FF?
@@ -60,6 +65,10 @@ begin
 	C12: D_FF port map(X1, CLR1, q2, q1);
 	C13: D_FF port map(X1, CLR1, q1, q0);
 	C14: D_FF port map(X1, CLR1, q0, qst);
+	C15: T_FF port map(
+	C16:
+	C17:
+	C18:
 end top_stru;
 	
 	

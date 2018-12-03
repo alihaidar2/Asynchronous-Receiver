@@ -1,9 +1,3 @@
---The counter counts up to 11 (1101 binary) then stops
---The output is the RXF signal.
---This goes high when the eleventh clock pulse is received
---
-
-
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -18,7 +12,7 @@ entity divCounter is
 end divCounter;
 
 architecture rtl of shiftReg is
-	signal t0, t1, t2, t3, stop : std_logic;   --All t inputs are interconnecting wires
+	signal t0, t1, t2, t3, stop : std_logic; 
 	begin
 		t0 = 1 and stop;
 		t1= Q0 and stop;

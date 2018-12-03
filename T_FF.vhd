@@ -1,6 +1,3 @@
---Define T_FF
---Needed for the divide by 11 asynchronous counter
-
 library ieee;
 use ieee.std_logic_1164.all;
 
