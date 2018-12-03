@@ -1,15 +1,3 @@
---11 bit shift register with :
---A start bit
---Eight data bits (d0 to d7)
---Two stop bits (sp1 and sp2)
---The incoming data (din) connect to the sp2 flipflop and are shifted into the sp1 FF.
---The last FF in the shift register is the start-bit FF, since this is the first data bit into the shift register.
-
---Define the shift register
---The shift register clock is rxclk which is controlled by the FSM
---The protocol bits (st, sp1, and sp2) are shifted into theirs own FF's
-
-
 library ieee;
 use ieee.std_logic_1164.all;
 
