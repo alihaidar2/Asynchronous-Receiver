@@ -16,16 +16,29 @@ architecture rtl of shiftReg is
 begin
 	process (clk, rst)
 	begin
-	qst <= Q0;
-	q0 <= Q1;
-	q1 <= Q2;
-	q2 <= Q3;
-	q4 <= Q5;
-	q5 <= Q6;
-	q6 <= Q7;
-	q7 <= QSP1;
-	qsp1 <= QSP2;
-	qsp2 <= din;
+		if (rst = '0') then
+			qst <= 0;
+			q0 <= '0';
+			q1 <= '0';
+			q2 <= '0';
+			q4 <= '0';
+			q5 <= '0';
+			q6 <= '0';
+			q7 <= '0';
+			qsp1 <= '0';
+			qsp2 <= '0';
+		elsif (clk'event and clk = '1') then
+			qst <= Q0;
+			q0 <= Q1;
+			q1 <= Q2;
+			q2 <= Q3;
+			q4 <= Q5;
+			q5 <= Q6;
+			q6 <= Q7;
+			q7 <= QSP1;
+			qsp1 <= QSP2;
+			qsp2 <= din;
+		end if;
 end rtl;
 
 	

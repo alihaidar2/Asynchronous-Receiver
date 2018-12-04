@@ -2,22 +2,29 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity divCounter is
+	
+	generic ( N : natural := 0);
+	
 	port (
-		clk, rst: in std_logic;
-		rxf: out std_logic;
-		--idk if i need these
-		q0, q1, q2, q3: out std_logic
-	);
-
-end divCounter;
+		clk, clr : in std_logic;
+		rxf: out std_logic
+		);
+		
+end entity;
 
 architecture rtl of divCounter is
-	signal t0, t1, t2, t3, stop : std_logic; 
+	process(clk, rst)
 	begin
-		t0 = 1 and stop;
-		t1= Q0 and stop;
-		t2= Q0 and Q1 and stop;
-		t3= Q0 and Q1 and Q2 and stop;
-		stop = not(Q0 and Q1 and not(Q2) and Q3); -- when ABCD = 1101
-		rxf = not(stop);
+		if (rst = 0) then
+			N <= 0;
+		elsif (clk'event and clk = '1') then
+			if (N = 11) then
+				rxf <= '1';
+				N <= 0;
+			else
+				rxf <= '0'; 
+				N <= N + 1;
+			end if;
+		end if;
+	end process;
 end rtl;

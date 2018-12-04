@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity fsm is
 	port(
-	st, rxf, rxo, ed, en, ack: in std_logic;
+	st, rxf, rxo, en, ack: in std_logic;
 	clk, rst: in std_logic;
 	cdc, rxck, err, dry, pd: out std_logic
 	);
@@ -13,6 +13,7 @@ end fsm;
 
 
 architecture fsmctrl of fsm is 
+
 	type states is (s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11);
 	signal currentState, newState, ea: states;
 	signal clock, reset: std_logic;
