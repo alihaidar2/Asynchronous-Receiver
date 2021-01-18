@@ -1,6 +1,3 @@
-# async_rec
+# Asynchronous Receiver
 
-Development of a Serial Asynchronous Receiver
-
-Ali Haidar 8328785
-Paul Abou Zeid 8649144
+Created an serial asynchronous receiver by putting together components, such as D and T flip-flops that were previously developed.
